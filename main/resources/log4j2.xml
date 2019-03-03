@@ -19,7 +19,7 @@
                 ignoreExceptions="false">
             <PatternLayout pattern="${pattern_for_file}"/>
             <Policies>
-                <SizeBasedTriggeringPolicy size="10 KB" />
+                <SizeBasedTriggeringPolicy size="100 KB" />
             </Policies>
         </RollingFile>
     </Appenders>

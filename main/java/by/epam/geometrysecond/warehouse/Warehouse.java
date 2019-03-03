@@ -43,7 +43,7 @@ public class Warehouse
         }
         else
         {
-            throw new KeyNotFoundException();
+            throw new KeyNotFoundException("The triangle with Id="+triangleId+" doesn't exit in Warehouse");
         }
         return perimeter;
     }
@@ -57,7 +57,7 @@ public class Warehouse
         }
         else
         {
-            throw new KeyNotFoundException();
+            throw new KeyNotFoundException("The triangle with Id="+triangleId+" doesn't exit in Warehouse");
         }
     }
 
@@ -70,7 +70,7 @@ public class Warehouse
         }
         else
         {
-            throw new KeyNotFoundException();
+            throw new KeyNotFoundException("The triangle with Id="+triangleId+" doesn't exit in Warehouse");
         }
         return square;
     }
@@ -84,7 +84,7 @@ public class Warehouse
         }
         else
         {
-            throw new KeyNotFoundException();
+            throw new KeyNotFoundException("The triangle with Id="+triangleId+" doesn't exit in Warehouse");
         }
     }
 }

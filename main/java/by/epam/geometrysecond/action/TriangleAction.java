@@ -15,7 +15,7 @@ public class TriangleAction
 
     public TriangleAction()
     {
-        logger.log(Level.INFO, "A object TriangleAction was created");
+        logger.log(Level.INFO, "An object TriangleAction was created");
     }
 
     public boolean isTriangle(Triangle triangle)
@@ -48,7 +48,7 @@ public class TriangleAction
         }
         else
         {
-            throw new TriangleNotExistsException("A triangle "+triangle.toString()+" doesn't exist");
+            throw new TriangleNotExistsException(triangle.toString()+" doesn't exist");
         }
         return perimeter;
     }
@@ -64,7 +64,7 @@ public class TriangleAction
         }
         else
         {
-            throw new TriangleNotExistsException("A triangle "+triangle.toString()+" doesn't exist");
+            throw new TriangleNotExistsException(triangle.toString()+" doesn't exist");
         }
         return square;
     }
@@ -84,7 +84,7 @@ public class TriangleAction
         }
         else
         {
-            throw new TriangleNotExistsException("A triangle "+triangle.toString()+" doesn't exist");
+            throw new TriangleNotExistsException(triangle.toString()+" doesn't exist");
         }
         return answer;
     }
@@ -102,7 +102,7 @@ public class TriangleAction
         }
         else
         {
-            throw  new TriangleNotExistsException("A triangle "+triangle.toString()+" doesn't exist");
+            throw  new TriangleNotExistsException(triangle.toString()+" doesn't exist");
         }
         return answer;
     }
@@ -120,7 +120,7 @@ public class TriangleAction
         }
         else
         {
-            throw new TriangleNotExistsException("A triangle "+triangle.toString()+" doesn't exist");
+            throw new TriangleNotExistsException(triangle.toString()+" doesn't exist");
         }
         return answer;
     }
@@ -139,7 +139,7 @@ public class TriangleAction
         }
         else
         {
-            throw new TriangleNotExistsException("A triangle "+triangle.toString()+" doesn't exist");
+            throw new TriangleNotExistsException(triangle.toString()+" doesn't exist");
         }
         return answer;
     }
@@ -158,7 +158,7 @@ public class TriangleAction
         }
         else
         {
-            throw new TriangleNotExistsException("A triangle "+triangle.toString()+" doesn't exist");
+            throw new TriangleNotExistsException(triangle.toString()+" doesn't exist");
         }
         return answer;
     }

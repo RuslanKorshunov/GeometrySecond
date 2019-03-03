@@ -1,6 +1,8 @@
 package by.epam.geometrysecond.entity;
 
 import by.epam.geometrysecond.event.TriangleEvent;
+import by.epam.geometrysecond.exception.CustomException;
+import by.epam.geometrysecond.exception.TriangleNotExistsException;
 import by.epam.geometrysecond.generator.IdGenerator;
 import by.epam.geometrysecond.observer.Observable;
 import by.epam.geometrysecond.observer.Observer;
@@ -44,7 +46,7 @@ public class Triangle implements Figure, Observable
     }
 
     @Override
-    public void notifyObservers()
+    public void notifyObservers() throws CustomException
     {
         for(Observer observer: observerList)
         {
@@ -57,9 +59,25 @@ public class Triangle implements Figure, Observable
         boolean result=false;
         if(point.equals(first) || point.equals(second) || point.equals(third))
         {
+            double oldX=point.getX();
+            double oldY=point.getY();
             point.setX(x);
             point.setY(y);
-            result=true;
+            try
+            {
+                notifyObservers();
+                result=true;
+            }
+            catch(TriangleNotExistsException e)
+            {
+                logger.log(Level.ERROR, e.getMessage());
+                point.setX(oldX);
+                point.setY(oldY);
+            }
+            catch(CustomException e)
+            {
+                logger.log(Level.ERROR, e.getMessage());
+            }
         }
         return result;
     }

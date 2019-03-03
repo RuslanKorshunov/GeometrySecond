@@ -12,22 +12,20 @@ import org.apache.logging.log4j.Logger;
 
 public class SquareObserver implements Observer
 {
-    private final static Logger logger= LogManager.getLogger(SquareObserver.class.getName());
+    private final static Logger logger=LogManager.getLogger(SquareObserver.class.getName());
+
+    public SquareObserver()
+    {
+        logger.log(Level.INFO, "An object SquareObserver was created");
+    }
 
     @Override
-    public void update(TriangleEvent triangleEvent)
+    public void update(TriangleEvent triangleEvent) throws TriangleNotExistsException, KeyNotFoundException
     {
         Triangle triangle=(Triangle) triangleEvent.getSource();
         TriangleAction triangleAction=new TriangleAction();
         Warehouse warehouse=Warehouse.getWarehouse();
-        try
-        {
-            double square = triangleAction.square(triangle);
-            warehouse.changeSquare(triangle.getTriangleId(), square);
-        }
-        catch(TriangleNotExistsException|KeyNotFoundException e)
-        {
-            logger.log(Level.ERROR, e.getMessage());
-        }
+        double square = triangleAction.square(triangle);
+        warehouse.changeSquare(triangle.getTriangleId(), square);
     }
 }

@@ -14,20 +14,18 @@ public class PerimeterObserver implements Observer
 {
     private final static Logger logger=LogManager.getLogger(PerimeterObserver.class.getName());
 
+    public PerimeterObserver()
+    {
+        logger.log(Level.INFO, "An object PerimeterObserver was created");
+    }
+
     @Override
-    public void update(TriangleEvent triangleEvent)
+    public void update(TriangleEvent triangleEvent) throws TriangleNotExistsException, KeyNotFoundException
     {
         Triangle triangle=(Triangle) triangleEvent.getSource();
         TriangleAction triangleAction=new TriangleAction();
         Warehouse warehouse=Warehouse.getWarehouse();
-        try
-        {
-            double perimeter = triangleAction.perimeter(triangle);
-            warehouse.changePerimeter(triangle.getTriangleId(), perimeter);
-        }
-        catch(TriangleNotExistsException|KeyNotFoundException e)
-        {
-            logger.log(Level.ERROR, e.getMessage());
-        }
+        double perimeter = triangleAction.perimeter(triangle);
+        warehouse.changePerimeter(triangle.getTriangleId(), perimeter);
     }
 }
