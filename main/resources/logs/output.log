@@ -1,0 +1,70 @@
+2019-03-03 17:32:13.555 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=3, x=1.0, y=0.0} was created
+2019-03-03 17:32:13.593 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=4, first=Point{pointId=1, x=12.2, y=7.6}, second=Point{pointId=2, x=7.6, y=8.23}, third=Point{pointId=3, x=1.0, y=0.0}} was created
+2019-03-03 17:32:13.593 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=5, x=12.3, y=8.8} was created
+2019-03-03 17:32:13.593 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=6, x=0.0, y=0.0} was created
+2019-03-03 17:32:13.593 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=7, x=2.0, y=2.0} was created
+2019-03-03 17:32:13.593 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=8, first=Point{pointId=5, x=12.3, y=8.8}, second=Point{pointId=6, x=0.0, y=0.0}, third=Point{pointId=7, x=2.0, y=2.0}} was created
+2019-03-03 17:32:13.840 [main] INFO  by.epam.geometrysecond.comparator.XCoordinateComparator - An object XCoordinateComparator was created
+2019-03-03 17:33:18.474 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=1, x=12.2, y=7.6} was created
+2019-03-03 17:33:18.484 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=2, x=7.6, y=8.23} was created
+2019-03-03 17:33:18.484 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=3, x=1.0, y=0.0} was created
+2019-03-03 17:33:18.494 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=4, first=Point{pointId=1, x=12.2, y=7.6}, second=Point{pointId=2, x=7.6, y=8.23}, third=Point{pointId=3, x=1.0, y=0.0}} was created
+2019-03-03 17:33:18.494 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=5, x=12.3, y=8.8} was created
+2019-03-03 17:33:18.494 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=6, x=0.0, y=0.0} was created
+2019-03-03 17:33:18.494 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=7, x=2.0, y=2.0} was created
+2019-03-03 17:33:18.494 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=8, first=Point{pointId=5, x=12.3, y=8.8}, second=Point{pointId=6, x=0.0, y=0.0}, third=Point{pointId=7, x=2.0, y=2.0}} was created
+2019-03-03 17:33:18.505 [main] INFO  by.epam.geometrysecond.comparator.XCoordinateComparator - An object XCoordinateComparator was created
+2019-03-03 17:33:31.690 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=1, x=12.2, y=7.6} was created
+2019-03-03 17:33:31.706 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=2, x=7.6, y=8.23} was created
+2019-03-03 17:33:31.706 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=3, x=1.0, y=0.0} was created
+2019-03-03 17:33:31.706 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=4, first=Point{pointId=1, x=12.2, y=7.6}, second=Point{pointId=2, x=7.6, y=8.23}, third=Point{pointId=3, x=1.0, y=0.0}} was created
+2019-03-03 17:33:31.706 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=5, x=12.3, y=8.8} was created
+2019-03-03 17:33:31.706 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=6, x=0.0, y=0.0} was created
+2019-03-03 17:33:31.706 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=7, x=2.0, y=2.0} was created
+2019-03-03 17:33:31.706 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=8, first=Point{pointId=5, x=12.3, y=8.8}, second=Point{pointId=6, x=0.0, y=0.0}, third=Point{pointId=7, x=2.0, y=2.0}} was created
+2019-03-03 17:33:31.722 [main] INFO  by.epam.geometrysecond.comparator.XCoordinateComparator - An object XCoordinateComparator was created
+2019-03-03 17:34:16.106 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=1, x=12.2, y=7.6} was created
+2019-03-03 17:34:16.116 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=2, x=7.6, y=8.23} was created
+2019-03-03 17:34:16.116 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=3, x=1.0, y=0.0} was created
+2019-03-03 17:34:16.116 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=4, first=Point{pointId=1, x=12.2, y=7.6}, second=Point{pointId=2, x=7.6, y=8.23}, third=Point{pointId=3, x=1.0, y=0.0}} was created
+2019-03-03 17:34:16.116 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=5, x=12.3, y=8.8} was created
+2019-03-03 17:34:16.116 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=6, x=0.0, y=0.0} was created
+2019-03-03 17:34:16.116 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=7, x=2.0, y=2.0} was created
+2019-03-03 17:34:16.116 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=8, first=Point{pointId=5, x=12.3, y=8.8}, second=Point{pointId=6, x=0.0, y=0.0}, third=Point{pointId=7, x=2.0, y=2.0}} was created
+2019-03-03 17:34:16.124 [main] INFO  by.epam.geometrysecond.comparator.XCoordinateComparator - An object XCoordinateComparator was created
+2019-03-03 17:45:16.894 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=1, x=12.2, y=7.6} was created
+2019-03-03 17:45:16.894 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=2, x=7.6, y=8.23} was created
+2019-03-03 17:45:16.909 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=3, x=1.0, y=0.0} was created
+2019-03-03 17:45:16.909 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=4, first=Point{pointId=1, x=12.2, y=7.6}, second=Point{pointId=2, x=7.6, y=8.23}, third=Point{pointId=3, x=1.0, y=0.0}} was created
+2019-03-03 17:45:16.909 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=5, x=12.3, y=8.8} was created
+2019-03-03 17:45:16.909 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=6, x=0.0, y=0.0} was created
+2019-03-03 17:45:16.909 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=7, x=2.0, y=2.0} was created
+2019-03-03 17:45:16.925 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=8, first=Point{pointId=5, x=12.3, y=8.8}, second=Point{pointId=6, x=0.0, y=0.0}, third=Point{pointId=7, x=2.0, y=2.0}} was created
+2019-03-03 17:45:16.941 [main] INFO  by.epam.geometrysecond.comparator.YCoordinateComparator - An object YCoordinateComparator was created
+2019-03-03 17:46:06.338 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=1, x=12.2, y=7.6} was created
+2019-03-03 17:46:06.338 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=2, x=7.6, y=8.23} was created
+2019-03-03 17:46:06.338 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=3, x=1.0, y=0.0} was created
+2019-03-03 17:46:06.348 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=4, first=Point{pointId=1, x=12.2, y=7.6}, second=Point{pointId=2, x=7.6, y=8.23}, third=Point{pointId=3, x=1.0, y=0.0}} was created
+2019-03-03 17:46:06.348 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=5, x=12.3, y=8.8} was created
+2019-03-03 17:46:06.348 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=6, x=0.0, y=0.0} was created
+2019-03-03 17:46:06.348 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=7, x=2.0, y=2.0} was created
+2019-03-03 17:46:06.348 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=8, first=Point{pointId=5, x=12.3, y=8.8}, second=Point{pointId=6, x=0.0, y=0.0}, third=Point{pointId=7, x=2.0, y=2.0}} was created
+2019-03-03 17:46:06.348 [main] INFO  by.epam.geometrysecond.comparator.YCoordinateComparator - An object YCoordinateComparator was created
+2019-03-03 17:46:55.241 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=1, x=12.2, y=7.6} was created
+2019-03-03 17:46:55.251 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=2, x=7.6, y=8.23} was created
+2019-03-03 17:46:55.251 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=3, x=1.0, y=0.0} was created
+2019-03-03 17:46:55.259 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=4, first=Point{pointId=1, x=12.2, y=7.6}, second=Point{pointId=2, x=7.6, y=8.23}, third=Point{pointId=3, x=1.0, y=0.0}} was created
+2019-03-03 17:46:55.259 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=5, x=12.3, y=8.8} was created
+2019-03-03 17:46:55.259 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=6, x=0.0, y=0.0} was created
+2019-03-03 17:46:55.261 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=7, x=2.0, y=2.0} was created
+2019-03-03 17:46:55.261 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=8, first=Point{pointId=5, x=12.3, y=8.8}, second=Point{pointId=6, x=0.0, y=0.0}, third=Point{pointId=7, x=2.0, y=2.0}} was created
+2019-03-03 17:46:55.261 [main] INFO  by.epam.geometrysecond.comparator.YCoordinateComparator - An object YCoordinateComparator was created
+2019-03-03 17:47:21.297 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=1, x=12.2, y=7.6} was created
+2019-03-03 17:47:21.319 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=2, x=7.6, y=8.23} was created
+2019-03-03 17:47:21.319 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=3, x=1.0, y=0.0} was created
+2019-03-03 17:47:21.319 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=4, first=Point{pointId=1, x=12.2, y=7.6}, second=Point{pointId=2, x=7.6, y=8.23}, third=Point{pointId=3, x=1.0, y=0.0}} was created
+2019-03-03 17:47:21.319 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=5, x=12.3, y=8.8} was created
+2019-03-03 17:47:21.319 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=6, x=0.0, y=0.0} was created
+2019-03-03 17:47:21.319 [main] INFO  by.epam.geometrysecond.entity.Point - Point{pointId=7, x=2.0, y=2.0} was created
+2019-03-03 17:47:21.319 [main] INFO  by.epam.geometrysecond.entity.Triangle - Triangle{triangleId=8, first=Point{pointId=5, x=12.3, y=8.8}, second=Point{pointId=6, x=0.0, y=0.0}, third=Point{pointId=7, x=2.0, y=2.0}} was created
+2019-03-03 17:47:21.319 [main] INFO  by.epam.geometrysecond.comparator.YCoordinateComparator - An object YCoordinateComparator was created
