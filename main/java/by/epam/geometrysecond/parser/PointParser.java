@@ -1,8 +1,7 @@
 package by.epam.geometrysecond.parser;
 
-import by.epam.geometrysecond.exception.EmptyListException;
+import by.epam.geometrysecond.exception.IncorrectDataException;
 import by.epam.geometrysecond.validator.PointValidator;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,19 +10,14 @@ import java.util.List;
 
 public class PointParser
 {
-    private static Logger logger= LogManager.getLogger(PointParser.class.getName());
+    private final static Logger logger= LogManager.getLogger(PointParser.class.getName());
     private final static String SPACE="\\s";
 
-    public PointParser()
-    {
-        logger.log(Level.INFO, "A object PointParser was created");
-    }
-
-    public List<List<String>> parseToCoordinates(List<String> dataForParsing) throws EmptyListException
+    public List<List<String>> parseToCoordinates(List<String> dataForParsing) throws IncorrectDataException
     {
         if(dataForParsing.isEmpty())
         {
-            throw new EmptyListException("The list dataForParsing is empty");
+            throw new IncorrectDataException("The list dataForParsing is empty");
         }
         List<List<String>> result=new ArrayList<>();
         for(String dataAboutPoint: dataForParsing)

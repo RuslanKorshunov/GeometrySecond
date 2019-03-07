@@ -1,13 +1,9 @@
 package by.epam.geometrysecond.entity;
 
 import by.epam.geometrysecond.generator.IdGenerator;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Point implements Figure
 {
-    private static Logger logger= LogManager.getLogger(Point.class.getName());
     private long pointId;
     private double x;
     private double y;
@@ -17,11 +13,6 @@ public class Point implements Figure
         pointId= IdGenerator.generateId();
         this.x = x;
         this.y = y;
-        logger.log(Level.INFO, toString()+" was created");
-    }
-
-    public long getPointId() {
-        return pointId;
     }
 
     public double getX()

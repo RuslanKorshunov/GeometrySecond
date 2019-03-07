@@ -13,12 +13,12 @@ import java.util.function.Predicate;
 public class PerimeterSpecification implements Predicate<Triangle>
 {
     private final static Logger logger= LogManager.getLogger(PerimeterObserver.class.getName());
+    private final static double MIN_PERIMETER=20;
+    private final static double MAX_PERIMETER=200;
 
     @Override
     public boolean test(Triangle triangle)
     {
-        final double MIN_PERIMETER=20;
-        final double MAX_PERIMETER=200;
         long triangleId=triangle.getTriangleId();
         Warehouse warehouse=Warehouse.getWarehouse();
         double perimeter=0;

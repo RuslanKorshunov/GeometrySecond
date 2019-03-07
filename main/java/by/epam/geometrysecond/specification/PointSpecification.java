@@ -6,11 +6,12 @@ import java.util.function.Predicate;
 
 public class PointSpecification implements Predicate<Triangle>
 {
+    private final static double X=15;
+    private final static double Y=15;
+
     @Override
     public boolean test(Triangle triangle)
     {
-        final double X=15;
-        final double Y=15;
         return (triangle.getFirst().getX()<X && triangle.getFirst().getY()<Y &&
                 triangle.getSecond().getX()<X && triangle.getSecond().getY()<Y &&
                 triangle.getThird().getX()<X && triangle.getThird().getY()<Y);

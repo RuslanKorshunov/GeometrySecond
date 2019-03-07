@@ -3,21 +3,11 @@ package by.epam.geometrysecond.action;
 import by.epam.geometrysecond.entity.Point;
 import by.epam.geometrysecond.entity.Triangle;
 import by.epam.geometrysecond.exception.TriangleNotExistsException;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 
 public class TriangleAction
 {
-    private static Logger logger= LogManager.getLogger(TriangleAction.class.getName());
-
-    public TriangleAction()
-    {
-        logger.log(Level.INFO, "An object TriangleAction was created");
-    }
-
     public boolean isTriangle(Triangle triangle)
     {
         boolean answer=false;

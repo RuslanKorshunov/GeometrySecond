@@ -1,7 +1,6 @@
 package by.epam.geometrysecond.entity;
 
 import by.epam.geometrysecond.event.TriangleEvent;
-import by.epam.geometrysecond.exception.CustomException;
 import by.epam.geometrysecond.exception.TriangleNotExistsException;
 import by.epam.geometrysecond.generator.IdGenerator;
 import by.epam.geometrysecond.observer.Observable;
@@ -15,7 +14,7 @@ import java.util.List;
 
 public class Triangle implements Figure, Observable
 {
-    private static Logger logger=LogManager.getLogger(Triangle.class.getName());
+    private final static Logger logger=LogManager.getLogger(Triangle.class.getName());
     private List<Observer> observerList;
     private long triangleId;
     private Point first;
@@ -29,10 +28,8 @@ public class Triangle implements Figure, Observable
         this.second = second;
         this.third = third;
         observerList=new ArrayList<>();
-        logger.log(Level.INFO, toString()+" was created");
     }
 
-    //TODO должна ли быть проверка типов добавляемых Observer-ов?
     @Override
     public void attach(Observer observer)
     {
@@ -46,7 +43,7 @@ public class Triangle implements Figure, Observable
     }
 
     @Override
-    public void notifyObservers() throws CustomException
+    public void notifyObservers() throws Exception
     {
         for(Observer observer: observerList)
         {
@@ -74,7 +71,7 @@ public class Triangle implements Figure, Observable
                 point.setX(oldX);
                 point.setY(oldY);
             }
-            catch(CustomException e)
+            catch(Exception e)
             {
                 logger.log(Level.ERROR, e.getMessage());
             }

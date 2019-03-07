@@ -12,12 +12,12 @@ import java.util.function.Predicate;
 public class SquareSpecification implements Predicate<Triangle>
 {
     private final static Logger logger= LogManager.getLogger(SquareSpecification.class.getName());
+    private final double MIN_SQUARE=20;
+    private final double MAX_SQUARE=200;
 
     @Override
     public boolean test(Triangle triangle)
     {
-        final double MIN_SQUARE=20;
-        final double MAX_SQUARE=200;
         long triangleId=triangle.getTriangleId();
         Warehouse warehouse=Warehouse.getWarehouse();
         double square=0;

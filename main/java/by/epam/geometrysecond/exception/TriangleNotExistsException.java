@@ -1,7 +1,6 @@
 package by.epam.geometrysecond.exception;
 
-public class TriangleNotExistsException extends CustomException
-{
+public class TriangleNotExistsException extends Exception {
     public TriangleNotExistsException() {
     }
 

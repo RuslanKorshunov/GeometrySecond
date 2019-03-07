@@ -2,9 +2,8 @@ package by.epam.geometrysecond.reader;
 
 import by.epam.geometrysecond.exception.EmptyFileException;
 import by.epam.geometrysecond.exception.OpenFileException;
-import by.epam.geometrysecond.exception.ReadingFromFileException;
+import by.epam.geometrysecond.exception.WorkWithFileException;
 import by.epam.geometrysecond.validator.FileValidator;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,15 +16,10 @@ import java.util.stream.Stream;
 
 public class PointReader
 {
-    private static Logger logger= LogManager.getLogger(PointReader.class.getName());
+    private static final Logger logger= LogManager.getLogger(PointReader.class.getName());
     private static final String DEFAULT_FILE_PATH ="src/main/resources/points.txt";
 
-    public PointReader()
-    {
-        logger.log(Level.INFO, "PointReader was created");
-    }
-
-    public List<String> read(String filePath) throws OpenFileException, EmptyFileException, ReadingFromFileException
+    public List<String> read(String filePath) throws WorkWithFileException
     {
         List<String> lines;
         if(!FileValidator.existFile(filePath) || !FileValidator.canReadFile(filePath))
@@ -34,7 +28,7 @@ public class PointReader
         }
         if(!FileValidator.existFile(filePath) || !FileValidator.canReadFile(filePath))
         {
-            throw new OpenFileException("The default file didn't exist or couldn't be read");
+            throw new WorkWithFileException("The default file didn't exist or couldn't be read");
         }
         try
         {
@@ -43,11 +37,11 @@ public class PointReader
         }
         catch(IOException e)
         {
-            throw new ReadingFromFileException("There was a problem reading from the file "+filePath, e);
+            throw new WorkWithFileException("There was a problem reading from the file "+filePath, e);
         }
         if(lines.isEmpty())
         {
-            throw new EmptyFileException("The file is empty");
+            throw new WorkWithFileException("The file is empty");
         }
         return lines;
     }

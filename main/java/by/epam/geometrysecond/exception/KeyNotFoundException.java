@@ -1,7 +1,6 @@
 package by.epam.geometrysecond.exception;
 
-public class KeyNotFoundException extends CustomException
-{
+public class KeyNotFoundException extends Exception {
     public KeyNotFoundException() {
     }
 
