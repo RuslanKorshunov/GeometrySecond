@@ -1,16 +1,14 @@
 package by.epam.geometrysecond.specification;
 
 import by.epam.geometrysecond.entity.Triangle;
-import by.epam.geometrysecond.warehouse.KeyNotFoundException;
 import by.epam.geometrysecond.observer.PerimeterObserver;
+import by.epam.geometrysecond.warehouse.KeyNotFoundException;
 import by.epam.geometrysecond.warehouse.Warehouse;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.function.Predicate;
-
-public class PerimeterSpecification implements Predicate<Triangle>
+public class PerimeterSpecification implements Specification
 {
     private final static Logger logger= LogManager.getLogger(PerimeterObserver.class.getName());
     private final static double MIN_PERIMETER=20;

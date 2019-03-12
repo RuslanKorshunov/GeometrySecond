@@ -2,9 +2,7 @@ package by.epam.geometrysecond.specification;
 
 import by.epam.geometrysecond.entity.Triangle;
 
-import java.util.function.Predicate;
-
-public class IdSpecification implements Predicate<Triangle>
+public class IdSpecification implements Specification
 {
     private final static int MIN_ID=2;
     private final static int MAX_ID=200;

@@ -5,9 +5,7 @@ import by.epam.geometrysecond.action.TriangleNotExistsException;
 import by.epam.geometrysecond.entity.Triangle;
 import by.epam.geometrysecond.warehouse.Warehouse;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -59,21 +57,14 @@ public class TriangleRepository implements Repository
     {
         Stream<Triangle> triangleStream=triangleSet.stream();
         List<Triangle> triangleList=(List)triangleStream.filter(predicate).collect(Collectors.toList());
-        /*List<Triangle> triangleSet=new LinkedList<>();
-        for(Triangle triangle: this.triangleSet)
-        {
-            try
-            {
-                if(specification.specify(triangle))
-                {
-                    triangleSet.add(triangle);
-                }
-            }
-            catch(CustomException e)
-            {
-                logger.log(Level.ERROR, e.getMessage());
-            }
-        }*/
+        return triangleList;
+    }
+
+    @Override
+    public List<Triangle> sort(Comparator comparator)
+    {
+        List<Triangle> triangleList=new ArrayList<>(triangleSet);
+        triangleList.sort(comparator);
         return triangleList;
     }
 }

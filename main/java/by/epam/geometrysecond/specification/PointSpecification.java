@@ -2,9 +2,7 @@ package by.epam.geometrysecond.specification;
 
 import by.epam.geometrysecond.entity.Triangle;
 
-import java.util.function.Predicate;
-
-public class PointSpecification implements Predicate<Triangle>
+public class PointSpecification implements Specification
 {
     private final static double X=15;
     private final static double Y=15;

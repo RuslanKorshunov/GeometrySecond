@@ -7,9 +7,7 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.function.Predicate;
-
-public class SquareSpecification implements Predicate<Triangle>
+public class SquareSpecification implements Specification
 {
     private final static Logger logger= LogManager.getLogger(SquareSpecification.class.getName());
     private final static double MIN_SQUARE=20;

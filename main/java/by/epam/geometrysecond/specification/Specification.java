@@ -1,9 +1,14 @@
 package by.epam.geometrysecond.specification;
 
 import by.epam.geometrysecond.entity.Triangle;
-import by.epam.geometrysecond.warehouse.KeyNotFoundException;
 
-public interface Specification
+import java.util.function.Predicate;
+
+public interface Specification extends Predicate<Triangle>
 {
-    boolean specify(Triangle triangle) throws KeyNotFoundException;
+    @Override
+    default boolean test(Triangle triangle)
+    {
+        return false;
+    }
 }

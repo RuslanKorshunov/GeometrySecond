@@ -16,10 +16,11 @@
     <test name="Test2">
         <groups>
             <run>
-                <include name="notTriangle"/>
+                <include name="repository"/>
             </run>
         </groups>
         <classes>
+            <class name="by.epam.geometrysecond.repository.TriangleRepositoryTest"/>
             <!--<class name="by.epam.geometrysecondsecond.action.TriangleActionTest"/>-->
         </classes>
     </test>
