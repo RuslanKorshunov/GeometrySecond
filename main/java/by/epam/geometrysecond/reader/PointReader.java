@@ -1,11 +1,6 @@
 package by.epam.geometrysecond.reader;
 
-import by.epam.geometrysecond.exception.EmptyFileException;
-import by.epam.geometrysecond.exception.OpenFileException;
-import by.epam.geometrysecond.exception.WorkWithFileException;
 import by.epam.geometrysecond.validator.FileValidator;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,7 +11,6 @@ import java.util.stream.Stream;
 
 public class PointReader
 {
-    private static final Logger logger= LogManager.getLogger(PointReader.class.getName());
     private static final String DEFAULT_FILE_PATH ="src/main/resources/points.txt";
 
     public List<String> read(String filePath) throws WorkWithFileException

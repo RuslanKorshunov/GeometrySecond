@@ -1,4 +1,4 @@
-package by.epam.geometrysecond.exception;
+package by.epam.geometrysecond.warehouse;
 
 public class KeyNotFoundException extends Exception {
     public KeyNotFoundException() {

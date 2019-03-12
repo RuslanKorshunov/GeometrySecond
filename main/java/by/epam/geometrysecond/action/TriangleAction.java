@@ -2,7 +2,6 @@ package by.epam.geometrysecond.action;
 
 import by.epam.geometrysecond.entity.Point;
 import by.epam.geometrysecond.entity.Triangle;
-import by.epam.geometrysecond.exception.TriangleNotExistsException;
 
 import java.util.Arrays;
 

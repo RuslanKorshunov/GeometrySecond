@@ -1,4 +1,4 @@
-package by.epam.geometrysecond.exception;
+package by.epam.geometrysecond.action;
 
 public class TriangleNotExistsException extends Exception {
     public TriangleNotExistsException() {

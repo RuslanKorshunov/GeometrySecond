@@ -1,21 +1,19 @@
 package by.epam.geometrysecond.repository;
 
 import by.epam.geometrysecond.action.TriangleAction;
+import by.epam.geometrysecond.action.TriangleNotExistsException;
 import by.epam.geometrysecond.entity.Triangle;
-import by.epam.geometrysecond.exception.TriangleNotExistsException;
 import by.epam.geometrysecond.warehouse.Warehouse;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class TriangleRepository implements Repository
 {
-    private final static Logger logger = LogManager.getLogger(TriangleAction.class.getName());
     private static TriangleRepository triangleRepository=new TriangleRepository();
     private Set<Triangle> triangleSet=new HashSet<>();
 
@@ -28,25 +26,17 @@ public class TriangleRepository implements Repository
 
     //TODO бред!
     @Override
-    public boolean add(Triangle triangle)
+    public boolean add(Triangle triangle) throws TriangleNotExistsException
     {
         boolean result=false;
-        if(triangleSet.add(triangle))
+        TriangleAction triangleAction=new TriangleAction();
+        if(triangleAction.isTriangle(triangle))
         {
-            TriangleAction triangleAction=new TriangleAction();
-            try
-            {
-                double perimeter = triangleAction.perimeter(triangle);
-                double square = triangleAction.square(triangle);
-                Warehouse warehouse=Warehouse.getWarehouse();
-                warehouse.put(triangle.getTriangleId(), square, perimeter);
-                result=true;
-            }
-            catch(TriangleNotExistsException e)
-            {
-                remove(triangle);
-                logger.log(Level.ERROR, e.getMessage());
-            }
+            result=triangleSet.add(triangle);
+        }
+        else
+        {
+            throw new TriangleNotExistsException(triangle.toString()+" can't be added, because it doesn't exit");
         }
         return result;
     }

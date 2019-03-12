@@ -1,4 +1,4 @@
-package by.epam.geometrysecond.exception;
+package by.epam.geometrysecond.reader;
 
 public class WorkWithFileException extends Exception {
     public WorkWithFileException() {

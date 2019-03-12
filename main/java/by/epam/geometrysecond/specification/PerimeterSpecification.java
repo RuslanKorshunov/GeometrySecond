@@ -1,7 +1,7 @@
 package by.epam.geometrysecond.specification;
 
 import by.epam.geometrysecond.entity.Triangle;
-import by.epam.geometrysecond.exception.KeyNotFoundException;
+import by.epam.geometrysecond.warehouse.KeyNotFoundException;
 import by.epam.geometrysecond.observer.PerimeterObserver;
 import by.epam.geometrysecond.warehouse.Warehouse;
 import org.apache.logging.log4j.Level;
@@ -21,14 +21,14 @@ public class PerimeterSpecification implements Predicate<Triangle>
     {
         long triangleId=triangle.getTriangleId();
         Warehouse warehouse=Warehouse.getWarehouse();
-        double perimeter=0;
+        double perimeter=-1;
         try
         {
             perimeter=warehouse.findPerimeter(triangleId);
         }
         catch(KeyNotFoundException e)
         {
-            logger.log(Level.ERROR, e.getMessage());
+            logger.log(Level.ERROR, e);
         }
         return (perimeter>=MIN_PERIMETER && perimeter<=MAX_PERIMETER);
     }

@@ -1,10 +1,11 @@
 package by.epam.geometrysecond.entity;
 
 import by.epam.geometrysecond.event.TriangleEvent;
-import by.epam.geometrysecond.exception.TriangleNotExistsException;
+import by.epam.geometrysecond.action.TriangleNotExistsException;
 import by.epam.geometrysecond.generator.IdGenerator;
 import by.epam.geometrysecond.observer.Observable;
 import by.epam.geometrysecond.observer.Observer;
+import by.epam.geometrysecond.warehouse.KeyNotFoundException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,7 +15,7 @@ import java.util.List;
 
 public class Triangle implements Figure, Observable
 {
-    private final static Logger logger=LogManager.getLogger(Triangle.class.getName());
+    private final static Logger logger=LogManager.getLogger(Triangle.class);
     private List<Observer> observerList;
     private long triangleId;
     private Point first;
@@ -43,7 +44,7 @@ public class Triangle implements Figure, Observable
     }
 
     @Override
-    public void notifyObservers() throws Exception
+    public void notifyObservers() throws TriangleNotExistsException, KeyNotFoundException
     {
         for(Observer observer: observerList)
         {
@@ -67,13 +68,13 @@ public class Triangle implements Figure, Observable
             }
             catch(TriangleNotExistsException e)
             {
-                logger.log(Level.ERROR, e.getMessage());
+                logger.log(Level.ERROR, e);
                 point.setX(oldX);
                 point.setY(oldY);
             }
-            catch(Exception e)
+            catch(KeyNotFoundException e)
             {
-                logger.log(Level.ERROR, e.getMessage());
+                logger.log(Level.ERROR, e);
             }
         }
         return result;
