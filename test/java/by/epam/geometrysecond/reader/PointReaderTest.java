@@ -1,9 +1,5 @@
 package by.epam.geometrysecond.reader;
 
-import by.epam.geometrysecond.exception.CustomException;
-import by.epam.geometrysecond.exception.EmptyFileException;
-import by.epam.geometrysecond.exception.OpenFileException;
-import by.epam.geometrysecond.exception.ReadingFromFileException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,14 +29,14 @@ public class PointReaderTest
             coordinates=pointReader.read(filePath);
             Assert.fail("readOpenFileException was failed");
         }
-        catch(OpenFileException|ReadingFromFileException|EmptyFileException e)
+        catch(WorkWithFileException e)
         {
             logger.log(Level.ERROR, e.getMessage());
         }
     }
 
     @Test(groups = {"fullPath"})
-    public void readOpenFilePositive() throws CustomException
+    public void readOpenFilePositive() throws WorkWithFileException
     {
         coordinates=pointReader.read("");
         logger.log(Level.INFO, "readOpenFilePositive was successful");

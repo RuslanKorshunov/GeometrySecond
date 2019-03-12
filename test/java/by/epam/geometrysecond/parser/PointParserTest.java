@@ -1,6 +1,6 @@
 package by.epam.geometrysecond.parser;
 
-import by.epam.geometrysecond.exception.EmptyListException;
+import by.epam.geometrysecond.exception.IncorrectDataException;
 import by.epam.geometrysecond.reader.PointReaderTest;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -26,14 +26,14 @@ public class PointParserTest
             result=pointParser.parseToCoordinates(emptyList);
             Assert.fail("parseToCoordinatesException was failed");
         }
-        catch(EmptyListException e)
+        catch(IncorrectDataException e)
         {
             logger.log(Level.ERROR, e.getMessage());
         }
     }
 
     @Test(groups = {"fullPath"})
-    public void parseToCoordinatePositive() throws EmptyListException
+    public void parseToCoordinatePositive() throws IncorrectDataException
     {
         List<String> dataForParsing= PointReaderTest.coordinates;
         result=pointParser.parseToCoordinates(dataForParsing);

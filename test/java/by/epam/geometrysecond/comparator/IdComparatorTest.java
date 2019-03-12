@@ -6,8 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
 public class IdComparatorTest
 {
     private Triangle triangleFirst;
@@ -45,7 +43,7 @@ public class IdComparatorTest
     }
 
     @Test
-    public void compareThirddPositive()
+    public void compareThirdPositive()
     {
         IdComparator idComparator=new IdComparator();
         int actual=idComparator.compare(triangleSecond, triangleSecond);

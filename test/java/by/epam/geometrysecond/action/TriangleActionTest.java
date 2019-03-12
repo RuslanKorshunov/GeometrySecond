@@ -2,7 +2,6 @@ package by.epam.geometrysecond.action;
 
 import by.epam.geometrysecond.entity.Point;
 import by.epam.geometrysecond.entity.Triangle;
-import by.epam.geometrysecond.exception.TriangleNotExistsException;
 import by.epam.geometrysecond.parser.PointParserTest;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;

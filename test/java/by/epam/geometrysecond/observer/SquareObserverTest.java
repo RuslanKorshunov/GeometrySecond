@@ -1,14 +1,14 @@
 package by.epam.geometrysecond.observer;
 
+import by.epam.geometrysecond.action.TriangleNotExistsException;
 import by.epam.geometrysecond.entity.Point;
 import by.epam.geometrysecond.entity.Triangle;
 import by.epam.geometrysecond.repository.Repository;
 import by.epam.geometrysecond.repository.TriangleRepository;
+import by.epam.geometrysecond.warehouse.Warehouse;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.*;
 
 public class SquareObserverTest
 {
@@ -16,7 +16,7 @@ public class SquareObserverTest
     private Triangle triangleSecond;
 
     @BeforeClass
-    public void setUp()
+    public void setUp() throws TriangleNotExistsException
     {
         Point first=new Point(12.2, 7.6);
         Point second=new Point(7.6, 8.23);
@@ -28,6 +28,8 @@ public class SquareObserverTest
         triangleSecond.attach(observer);
         Repository repository= TriangleRepository.getTriangleRepository();
         repository.add(triangleFirst);
+        Warehouse warehouse=Warehouse.getWarehouse();
+        warehouse.put(triangleFirst.getTriangleId(), 1, 1);
     }
 
     @Test
