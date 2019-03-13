@@ -15,7 +15,7 @@ public class PerimeterObserverTest
     private Triangle triangleFirst;
     private Triangle triangleSecond;
 
-    @BeforeClass
+    @BeforeClass(groups = {"observer"})
     public void setUp() throws TriangleNotExistsException
     {
         Point first=new Point(12.2, 7.6);
@@ -32,21 +32,23 @@ public class PerimeterObserverTest
         warehouse.put(triangleFirst.getTriangleId(), 1, 1);
     }
 
-    @Test
+    @Test(groups = {"observer"})
     public void updateFirstPositive()
     {
         boolean actual= triangleFirst.changePoint(triangleFirst.getFirst(), 7.7, 7.8);
         Assert.assertTrue(actual);
     }
 
-    @Test
+    @Test(groups = {"observer"},
+            dependsOnMethods = {"updateFirstPositive"})
     public void updateFirstNegative()
     {
         boolean actual= triangleFirst.changePoint(triangleFirst.getFirst(), 7.6, 8.23);
         Assert.assertFalse(actual);
     }
 
-    @Test
+    @Test(groups = {"observer"},
+            dependsOnMethods = {"updateFirstNegative"})
     public void updateSecondNegative()
     {
         boolean actual=triangleSecond.changePoint(triangleSecond.getFirst(), 12, 0);

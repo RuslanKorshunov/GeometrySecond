@@ -132,7 +132,7 @@ public class TriangleRepositoryTest
 
     @Test(groups = {"repository"},
             dependsOnMethods = {"removePositive"})
-    public void removeNegative() throws TriangleNotExistsException
+    public void removeNegative()
     {
         TriangleRepository triangleRepository=TriangleRepository.getTriangleRepository();
         boolean actual=triangleRepository.remove(triangleFirst);

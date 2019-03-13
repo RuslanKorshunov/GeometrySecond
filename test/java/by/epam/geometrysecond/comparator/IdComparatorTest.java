@@ -11,7 +11,7 @@ public class IdComparatorTest
     private Triangle triangleFirst;
     private Triangle triangleSecond;
 
-    @BeforeClass
+    @BeforeClass(groups = {"comparator"})
     public void setUp()
     {
         Point first=new Point(12.2, 7.6);
@@ -24,7 +24,7 @@ public class IdComparatorTest
         triangleSecond=new Triangle(first, second, third);
     }
 
-    @Test
+    @Test(groups = {"comparator"})
     public void compareFirstPositive()
     {
         IdComparator idComparator=new IdComparator();
@@ -33,7 +33,8 @@ public class IdComparatorTest
         Assert.assertEquals(actual, expected);
     }
 
-    @Test
+    @Test(groups = {"comparator"},
+            dependsOnMethods = {"compareFirstPositive"})
     public void compareSecondPositive()
     {
         IdComparator idComparator=new IdComparator();
@@ -42,7 +43,8 @@ public class IdComparatorTest
         Assert.assertEquals(actual, expected);
     }
 
-    @Test
+    @Test(groups = {"comparator"},
+            dependsOnMethods = {"compareSecondPositive"})
     public void compareThirdPositive()
     {
         IdComparator idComparator=new IdComparator();

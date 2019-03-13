@@ -2,15 +2,12 @@ package by.epam.geometrysecond.parser;
 
 import by.epam.geometrysecond.exception.IncorrectDataException;
 import by.epam.geometrysecond.validator.PointValidator;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PointParser
 {
-    private final static Logger logger= LogManager.getLogger(PointParser.class.getName());
     private final static String SPACE="\\s";
 
     public List<List<String>> parseToCoordinates(List<String> dataForParsing) throws IncorrectDataException

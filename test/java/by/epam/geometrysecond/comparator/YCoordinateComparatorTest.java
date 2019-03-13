@@ -11,7 +11,7 @@ public class YCoordinateComparatorTest
     private Triangle triangleFirst;
     private Triangle triangleSecond;
 
-    @BeforeClass
+    @BeforeClass(groups = {"comparator"})
     public void setUp()
     {
         Point first=new Point(12.2, 7.6);
@@ -24,7 +24,7 @@ public class YCoordinateComparatorTest
         triangleSecond=new Triangle(first, second, third);
     }
 
-    @Test
+    @Test(groups = {"comparator"})
     public void compareFirstPositive()
     {
         YCoordinateComparator yCoordinateComparator=new YCoordinateComparator();
@@ -33,7 +33,8 @@ public class YCoordinateComparatorTest
         Assert.assertEquals(actual,expected);
     }
 
-    @Test
+    @Test(groups = {"comparator"},
+            dependsOnMethods = {"compareFirstPositive"})
     public void compareSecondPositive()
     {
         YCoordinateComparator yCoordinateComparator=new YCoordinateComparator();
@@ -42,7 +43,8 @@ public class YCoordinateComparatorTest
         Assert.assertEquals(actual,expected);
     }
 
-    @Test
+    @Test(groups = {"comparator"},
+            dependsOnMethods = {"compareSecondPositive"})
     public void compareThirdPositive()
     {
         YCoordinateComparator yCoordinateComparator=new YCoordinateComparator();

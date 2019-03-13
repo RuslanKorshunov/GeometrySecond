@@ -17,10 +17,31 @@
         <groups>
             <run>
                 <include name="repository"/>
+                <include name="warehouse"/>
+                <include name="comparator"/>
+                <include name="observer"/>
+                <include name="parser"/>
+                <include name="reader"/>
+                <include name="pointValidator"/>
+                <include name="creator"/>
+                <!--<include name="notTriangle"/>-->
+                <include name="triangle"/>
             </run>
         </groups>
         <classes>
             <class name="by.epam.geometrysecond.repository.TriangleRepositoryTest"/>
+            <class name="by.epam.geometrysecond.warehouse.WarehouseTest"/>
+            <class name="by.epam.geometrysecond.comparator.IdComparatorTest"/>
+            <class name="by.epam.geometrysecond.comparator.XCoordinateComparatorTest"/>
+            <class name="by.epam.geometrysecond.comparator.YCoordinateComparatorTest"/>
+            <class name="by.epam.geometrysecond.observer.PerimeterObserverTest"/>
+            <class name="by.epam.geometrysecond.observer.SquareObserverTest"/>
+            <class name="by.epam.geometrysecond.parser.PointParserTest"/>
+            <class name="by.epam.geometrysecond.reader.PointReaderTest"/>
+            <class name="by.epam.geometrysecond.validator.PointValidatorTest"/>
+            <class name="by.epam.geometrysecond.creator.TriangleCreatorTest"/>
+            <class name="by.epam.geometrysecond.creator.PointCreatorTest"/>
+            <class name="by.epam.geometrysecond.action.TriangleActionTest"/>
             <!--<class name="by.epam.geometrysecondsecond.action.TriangleActionTest"/>-->
         </classes>
     </test>

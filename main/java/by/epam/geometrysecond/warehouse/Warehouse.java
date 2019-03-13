@@ -1,4 +1,3 @@
-//TODO кто занимается пересчётом значений
 package by.epam.geometrysecond.warehouse;
 
 import java.util.ArrayList;

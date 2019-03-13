@@ -1,7 +1,7 @@
 package by.epam.geometrysecond.creator;
 
 import by.epam.geometrysecond.entity.Figure;
-import by.epam.geometrysecond.exception.CustomException;
+import by.epam.geometrysecond.exception.IncorrectDataException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,7 +31,8 @@ public class PointCreatorTest
         return new Object[][]{{badDataForPointFirst}, {badDataForPointSecond}};
     }
 
-    @Test(dataProvider = "createFigureExceptionDate")
+    @Test(groups = {"creator"},
+            dataProvider = "createFigureExceptionDate")
     public void createFigureException(List<String> dataForPoint)
     {
         Creator<String> pointCreator=new PointCreator();
@@ -39,11 +40,11 @@ public class PointCreatorTest
         try
         {
             point=pointCreator.createFigure(dataForPoint);
-            Assert.fail("createFigureException was failed");
+            Assert.fail("createFigureIncorrectDataException was failed");
         }
-        catch(CustomException e)
+        catch(IncorrectDataException e)
         {
-            logger.log(Level.ERROR, e.getMessage());
+            logger.log(Level.ERROR, e);
         }
     }
 }

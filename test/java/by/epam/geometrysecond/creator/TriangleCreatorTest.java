@@ -2,7 +2,7 @@ package by.epam.geometrysecond.creator;
 
 import by.epam.geometrysecond.entity.Figure;
 import by.epam.geometrysecond.entity.Point;
-import by.epam.geometrysecond.exception.NotEnoughDataInListException;
+import by.epam.geometrysecond.exception.IncorrectDataException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class TriangleCreatorTest
 {
-    private static Logger logger = LogManager.getLogger(PointCreatorTest.class.getName());
+    private final static Logger logger=LogManager.getLogger(TriangleCreatorTest.class);
 
     @DataProvider
     public Object[][] createFigureExceptionData()
@@ -28,19 +28,20 @@ public class TriangleCreatorTest
         return new Object[][]{{dataForTriangle}};
     }
 
-    @Test(dataProvider = "createFigureExceptionData")
-    public void createFigureException(List<Point> dataForTriangle)
+    @Test(groups = {"creator"},
+            dataProvider = "createFigureExceptionData")
+    public void createFigureIncorrectDataException(List<Point> dataForTriangle)
     {
         Creator triangleCreator=new TriangleCreator();
         Figure triangle;
         try
         {
             triangle=((TriangleCreator) triangleCreator).createFigure(dataForTriangle);
-            Assert.fail("createFigureException was failed");
+            Assert.fail("createFigureIncorrectDataException was failed");
         }
-        catch(NotEnoughDataInListException e)
+        catch(IncorrectDataException e)
         {
-            logger.log(Level.ERROR, e.getMessage());
+            logger.log(Level.ERROR, e);
         }
     }
 }

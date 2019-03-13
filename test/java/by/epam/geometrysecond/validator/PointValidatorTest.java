@@ -9,28 +9,22 @@ import org.testng.annotations.Test;
 
 public class PointValidatorTest
 {
-    private static Logger logger = LogManager.getLogger(PointValidatorTest.class.getName());
+    private final static Logger logger = LogManager.getLogger(PointValidatorTest.class.getName());
 
-    @Test
+    @Test(groups = {"pointValidator"})
     public void validPointPositive()
     {
         String data="1.2 2.3 4.5 6.78 8.0 12.2";
         boolean actual= PointValidator.validPoint(data);
         Assert.assertTrue(actual);
-        logger.log(Level.INFO, "validPointPositive was successful");
     }
 
-    @DataProvider
-    public Object[][] validPointNegativeData()
+    @Test(groups = {"pointValidator"},
+            dependsOnMethods = {"validPointPositive"})
+    public void validPointNegative()
     {
-        return new Object[][]{{""}};
-    }
-
-    @Test(dataProvider = "validPointNegativeData")
-    public void validPointNegative(String data)
-    {
+        String data="";
         boolean actual=PointValidator.validPoint(data);
         Assert.assertFalse(actual);
-        logger.log(Level.INFO, "validPointNegative was successful");
     }
 }
