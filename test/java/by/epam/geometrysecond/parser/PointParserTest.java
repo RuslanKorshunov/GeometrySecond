@@ -1,7 +1,6 @@
 package by.epam.geometrysecond.parser;
 
 import by.epam.geometrysecond.exception.IncorrectDataException;
-import by.epam.geometrysecond.reader.PointReaderTest;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,12 +14,11 @@ import java.util.List;
 public class PointParserTest
 {
     private final static Logger logger= LogManager.getLogger(PointParserTest.class.getName());
-    private List<List<String>> expected;
+    private final List<List<String>> expected=new ArrayList<>();
 
     @BeforeClass(groups = {"parser"})
     public void setUp()
     {
-        expected=new ArrayList<>();
         List<String> coordinates=new ArrayList<>();
         coordinates.add("1.23");
         coordinates.add("23.2");

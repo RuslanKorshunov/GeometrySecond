@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 public class PerimeterSpecification implements Specification
 {
-    private final static Logger logger= LogManager.getLogger(PerimeterObserver.class.getName());
+    private final static Logger logger= LogManager.getLogger(PerimeterObserver.class);
     private final static double MIN_PERIMETER=20;
     private final static double MAX_PERIMETER=200;
 

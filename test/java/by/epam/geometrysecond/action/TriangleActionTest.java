@@ -2,33 +2,40 @@ package by.epam.geometrysecond.action;
 
 import by.epam.geometrysecond.entity.Point;
 import by.epam.geometrysecond.entity.Triangle;
-import by.epam.geometrysecond.parser.PointParserTest;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class TriangleActionTest
 {
     private static Logger logger = LogManager.getLogger(TriangleAction.class.getName());
-    private Triangle triangle;
 
-    @BeforeTest(groups = {"triangle"})
-    public void setUpSecond()
+    @DataProvider
+    public Object[][] takeNonExistentTriangle()
     {
         Point first=new Point(1, 1);
         Point second=new Point(2, 2);
         Point third=new Point(3, 3);
-        triangle=new Triangle(first, second, third);
+        Triangle triangle=new Triangle(first, second, third);
+        return new Object[][]{{triangle}};
     }
 
-    @Test(groups = {"triangle"})
-    public void isTriangleNegative()
+    @DataProvider
+    public Object[][] takeExistentTriangle()
+    {
+        Point first=new Point(0, 0);
+        Point second=new Point(0, 6);
+        Point third=new Point(8, 0);
+        Triangle triangle=new Triangle(first, second ,third);
+        return new Object[][]{{triangle}};
+    }
+
+    @Test(groups = {"triangle"},
+            dataProvider = "takeNonExistentTriangle")
+    public void isTriangleNegative(Triangle triangle)
     {
         TriangleAction triangleAction=new TriangleAction();
         boolean actual=triangleAction.isTriangle(triangle);
@@ -36,8 +43,9 @@ public class TriangleActionTest
     }
 
     @Test(groups = {"triangle"},
-            dependsOnMethods = "isTriangleNegative")
-    public void triangleNotExistException()
+            dependsOnMethods = "isTriangleNegative",
+            dataProvider = "takeNonExistentTriangle")
+    public void triangleNotExistException(Triangle triangle)
     {
         TriangleAction triangleAction=new TriangleAction();
         try
@@ -52,21 +60,19 @@ public class TriangleActionTest
     }
 
     @Test(groups = {"triangle"},
-            dependsOnMethods = "triangleNotExistException")
-    public void isTrianglePositive()
+            dependsOnMethods = "triangleNotExistException",
+            dataProvider = "takeExistentTriangle")
+    public void isTrianglePositive(Triangle triangle)
     {
         TriangleAction triangleAction=new TriangleAction();
-        Point first=new Point(0, 0);
-        Point second=new Point(0, 6);
-        Point third=new Point(8, 0);
-        triangle=new Triangle(first, second ,third);
         boolean actual=triangleAction.isTriangle(triangle);
         Assert.assertTrue(actual);
     }
 
     @Test(groups = {"triangle"},
-            dependsOnMethods = {"isTrianglePositive"})
-    public void calculateSidePositive()
+            dependsOnMethods = {"isTrianglePositive"},
+            dataProvider = "takeExistentTriangle")
+    public void calculateSidePositive(Triangle triangle)
     {
         TriangleAction triangleAction=new TriangleAction();
         Point first=triangle.getFirst();
@@ -77,8 +83,9 @@ public class TriangleActionTest
     }
 
     @Test(groups = {"triangle"},
-            dependsOnMethods = "calculateSidePositive")
-    public void perimeterPositive() throws TriangleNotExistsException
+            dependsOnMethods = "calculateSidePositive",
+            dataProvider = "takeExistentTriangle")
+    public void perimeterPositive(Triangle triangle) throws TriangleNotExistsException
     {
         TriangleAction triangleAction=new TriangleAction();
         double actual=triangleAction.perimeter(triangle);
@@ -87,8 +94,9 @@ public class TriangleActionTest
     }
 
     @Test(groups = {"triangle"},
-            dependsOnMethods = "perimeterPositive")
-    public void squarePositive() throws TriangleNotExistsException
+            dependsOnMethods = "perimeterPositive",
+            dataProvider = "takeExistentTriangle")
+    public void squarePositive(Triangle triangle) throws TriangleNotExistsException
     {
         TriangleAction triangleAction=new TriangleAction();
         double actual=triangleAction.square(triangle);
@@ -98,8 +106,9 @@ public class TriangleActionTest
 
 
     @Test(groups = {"triangle"},
-            dependsOnMethods = "squarePositive")
-    public void isRightTrianglePositive() throws TriangleNotExistsException
+            dependsOnMethods = "squarePositive",
+            dataProvider = "takeExistentTriangle")
+    public void isRightTrianglePositive(Triangle triangle) throws TriangleNotExistsException
     {
         TriangleAction triangleAction=new TriangleAction();
         boolean actual=triangleAction.isRightTriangle(triangle);
@@ -107,86 +116,78 @@ public class TriangleActionTest
     }
 
     @Test(groups = {"triangle"},
-            dependsOnMethods = "isRightTrianglePositive")
-    public void isRightTriangleNegative() throws TriangleNotExistsException
+            dependsOnMethods = "isRightTrianglePositive",
+            dataProvider = "takeExistentTriangle")
+    public void isRightTriangleNegative(Triangle triangle) throws TriangleNotExistsException
     {
         TriangleAction triangleAction=new TriangleAction();
-        triangle.changePoint(triangle.getFirst(), 1, 2);
+        triangle.setPoint(triangle.getFirst(), 1, 2);
         boolean actual=triangleAction.isRightTriangle(triangle);
         Assert.assertFalse(actual);
     }
 
     @Test(groups = {"triangle"},
-            dependsOnMethods = "isRightTriangleNegative")
-    public void isIsoscelesTrianglePositive() throws TriangleNotExistsException
+            dependsOnMethods = "isRightTriangleNegative",
+            dataProvider = "takeExistentTriangle")
+    public void isIsoscelesTrianglePositive(Triangle triangle) throws TriangleNotExistsException
     {
         TriangleAction triangleAction=new TriangleAction();
-        triangle.changePoint(triangle.getFirst(), 0, 0);
-        triangle.changePoint(triangle.getThird(), 6, 0);
+        triangle.setPoint(triangle.getFirst(), 0, 0);
+        triangle.setPoint(triangle.getThird(), 6, 0);
         boolean actual=triangleAction.isIsoscelesTriangle(triangle);
         Assert.assertTrue(actual);
     }
 
     @Test(groups = {"triangle"},
-            dependsOnMethods = "isIsoscelesTrianglePositive")
-    public void isIsoscelesTriangleNegative() throws TriangleNotExistsException
+            dependsOnMethods = "isIsoscelesTrianglePositive",
+            dataProvider = "takeExistentTriangle")
+    public void isIsoscelesTriangleNegative(Triangle triangle) throws TriangleNotExistsException
     {
         TriangleAction triangleAction=new TriangleAction();
-        triangle.changePoint(triangle.getThird(), 7, 0);
+        triangle.setPoint(triangle.getThird(), 7, 0);
         boolean actual=triangleAction.isIsoscelesTriangle(triangle);
         Assert.assertFalse(actual);
     }
 
-
-
-    /*@Test(groups = {"fullPath"},
-            dependsOnMethods = "isIsoscelesTriangleNegative")
-    public void isEquilateralTriangleNegative() throws TriangleNotExistsException
+    @Test(groups = {"triangle"},
+            dependsOnMethods = "isIsoscelesTriangleNegative",
+            dataProvider = "takeExistentTriangle")
+    public void isEquilateralTriangleNegative(Triangle triangle) throws TriangleNotExistsException
     {
+        TriangleAction triangleAction=new TriangleAction();
         boolean actual=triangleAction.isEquilateralTriangle(triangle);
         Assert.assertFalse(actual);
-        logger.log(Level.INFO, "The figure №"+triangle.getTriangleId()+" isn't a equilateral triangle");
     }
 
-    @Test
-    public void isEquilateralTrianglePositive() throws TriangleNotExistsException
+    @Test(groups = {"triangle"},
+            dependsOnMethods = "isEquilateralTriangleNegative",
+            dataProvider = "takeExistentTriangle")
+    public void isAcuteTrianglePositive(Triangle triangle) throws TriangleNotExistsException
     {
-        boolean actual=triangleAction.isEquilateralTriangle(triangle);
-        Assert.assertTrue(actual);
-        logger.log(Level.INFO, "The figure №"+triangle.getTriangleId()+" is a equilateral triangle");
-    }
-
-    @Test
-    public void isAcuteTriangleNegative() throws TriangleNotExistsException
-    {
-        boolean actual=triangleAction.isAcuteTriangle(triangle);
-        Assert.assertFalse(actual);
-        logger.log(Level.INFO, "The figure №"+triangle.getTriangleId()+" isn't a acute triangle");
-    }
-
-    @Test(groups = {"fullPath"},
-            dependsOnMethods = "isEquilateralTriangleNegative")
-    public void isAcuteTrianglePositive() throws TriangleNotExistsException
-    {
+        TriangleAction triangleAction=new TriangleAction();
+        triangle.setPoint(triangle.getSecond(), 4, 20);
         boolean actual=triangleAction.isAcuteTriangle(triangle);
         Assert.assertTrue(actual);
-        logger.log(Level.INFO, "The figure №"+triangle.getTriangleId()+" is a acute triangle");
     }
 
-    @Test(groups = {"fullPath"},
-            dependsOnMethods = "isAcuteTrianglePositive")
-    public void isObtuseTriangleNegative() throws TriangleNotExistsException
+    @Test(groups = {"triangle"},
+            dependsOnMethods = "isAcuteTrianglePositive",
+            dataProvider = "takeExistentTriangle")
+    public void isObtuseTriangleNegative(Triangle triangle) throws TriangleNotExistsException
     {
+        TriangleAction triangleAction=new TriangleAction();
         boolean actual=triangleAction.isObtuseTriangle(triangle);
         Assert.assertFalse(actual);
-        logger.log(Level.INFO, "The figure №"+triangle.getTriangleId()+" isn't a obtuse triangle");
     }
 
-    @Test
-    public void isObtuseTrianglePositive() throws TriangleNotExistsException
+    @Test(groups = {"triangle"},
+            dependsOnMethods = "isObtuseTriangleNegative",
+            dataProvider = "takeExistentTriangle")
+    public void isObtuseTrianglePositive(Triangle triangle) throws TriangleNotExistsException
     {
+        TriangleAction triangleAction=new TriangleAction();
+        triangle.setPoint(triangle.getSecond(), -1, 6);
         boolean actual=triangleAction.isObtuseTriangle(triangle);
         Assert.assertTrue(actual);
-        logger.log(Level.INFO, "The figure №"+triangle.getTriangleId()+" is a obtuse triangle");
-    }*/
+    }
 }

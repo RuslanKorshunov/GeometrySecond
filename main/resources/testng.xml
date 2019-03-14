@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="GeometryTest">
-    <test name="Test1">
-        <groups>
-            <run>
-                <include name="fullPath"/>
-            </run>
-        </groups>
-        <classes>
-            <!--<class name="by.epam.geometrysecondsecond.reader.PointReaderTest"/>
-            <class name="by.epam.geometrysecondsecond.parser.PointParserTest"/>
-            <class name="by.epam.geometrysecondsecond.action.TriangleActionTest"/>-->
-       </classes>
-    </test>
-    <test name="Test2">
+    <test name="Tests">
         <groups>
             <run>
                 <include name="repository"/>
@@ -24,7 +12,6 @@
                 <include name="reader"/>
                 <include name="pointValidator"/>
                 <include name="creator"/>
-                <!--<include name="notTriangle"/>-->
                 <include name="triangle"/>
             </run>
         </groups>
@@ -42,7 +29,6 @@
             <class name="by.epam.geometrysecond.creator.TriangleCreatorTest"/>
             <class name="by.epam.geometrysecond.creator.PointCreatorTest"/>
             <class name="by.epam.geometrysecond.action.TriangleActionTest"/>
-            <!--<class name="by.epam.geometrysecondsecond.action.TriangleActionTest"/>-->
         </classes>
     </test>
 </suite>

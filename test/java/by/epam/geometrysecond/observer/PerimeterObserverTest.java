@@ -7,43 +7,32 @@ import by.epam.geometrysecond.repository.Repository;
 import by.epam.geometrysecond.repository.TriangleRepository;
 import by.epam.geometrysecond.warehouse.Warehouse;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class PerimeterObserverTest
 {
-    private Triangle triangleFirst;
-    private Triangle triangleSecond;
-
-    @BeforeClass(groups = {"observer"})
-    public void setUp() throws TriangleNotExistsException
+    @Test(groups = {"observer"})
+    public void updateFirstPositive() throws TriangleNotExistsException
     {
         Point first=new Point(12.2, 7.6);
         Point second=new Point(7.6, 8.23);
         Point third=new Point (1,0);
-        triangleFirst =new Triangle(first, second, third);
-        triangleSecond=new Triangle(first, second, third);
-        Observer observer=new PerimeterObserver();
-        triangleFirst.attach(observer);
-        triangleSecond.attach(observer);
-        Repository repository=TriangleRepository.getTriangleRepository();
-        repository.add(triangleFirst);
-        Warehouse warehouse=Warehouse.getWarehouse();
-        warehouse.put(triangleFirst.getTriangleId(), 1, 1);
-    }
-
-    @Test(groups = {"observer"})
-    public void updateFirstPositive()
-    {
-        boolean actual= triangleFirst.changePoint(triangleFirst.getFirst(), 7.7, 7.8);
+        Triangle triangle=new Triangle(first, second, third);
+        addInRepository(triangle);
+        boolean actual= triangle.setPoint(triangle.getFirst(), 7.7, 7.8);
         Assert.assertTrue(actual);
     }
 
     @Test(groups = {"observer"},
             dependsOnMethods = {"updateFirstPositive"})
-    public void updateFirstNegative()
+    public void updateFirstNegative() throws TriangleNotExistsException
     {
-        boolean actual= triangleFirst.changePoint(triangleFirst.getFirst(), 7.6, 8.23);
+        Point first=new Point(12.2, 7.6);
+        Point second=new Point(7.6, 8.23);
+        Point third=new Point (1,0);
+        Triangle triangle=new Triangle(first, second, third);
+        addInRepository(triangle);
+        boolean actual= triangle.setPoint(triangle.getFirst(), 7.6, 8.23);
         Assert.assertFalse(actual);
     }
 
@@ -51,7 +40,23 @@ public class PerimeterObserverTest
             dependsOnMethods = {"updateFirstNegative"})
     public void updateSecondNegative()
     {
-        boolean actual=triangleSecond.changePoint(triangleSecond.getFirst(), 12, 0);
+        Point first=new Point(12.2, 7.6);
+        Point second=new Point(7.6, 8.23);
+        Point third=new Point (1,0);
+        Triangle triangle=new Triangle(first, second, third);
+        Observer observer=new PerimeterObserver();
+        triangle.attach(observer);
+        boolean actual=triangle.setPoint(triangle.getFirst(), 12, 0);
         Assert.assertFalse(actual);
+    }
+
+    private void addInRepository(Triangle triangle) throws TriangleNotExistsException
+    {
+        Observer observer=new PerimeterObserver();
+        triangle.attach(observer);
+        Repository repository=TriangleRepository.getTriangleRepository();
+        repository.add(triangle);
+        Warehouse warehouse=Warehouse.getWarehouse();
+        warehouse.put(triangle.getTriangleId(), 1, 1);
     }
 }

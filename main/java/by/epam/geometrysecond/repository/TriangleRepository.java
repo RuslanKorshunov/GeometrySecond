@@ -22,7 +22,6 @@ public class TriangleRepository implements Repository
         return triangleRepository;
     }
 
-    //TODO бред!
     @Override
     public boolean add(Triangle triangle) throws TriangleNotExistsException
     {

@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 public class SquareSpecification implements Specification
 {
-    private final static Logger logger= LogManager.getLogger(SquareSpecification.class.getName());
+    private final static Logger logger= LogManager.getLogger(SquareSpecification.class);
     private final static double MIN_SQUARE=20;
     private final static double MAX_SQUARE=200;
 

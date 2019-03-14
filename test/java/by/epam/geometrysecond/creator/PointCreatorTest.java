@@ -14,7 +14,7 @@ import java.util.List;
 
 public class PointCreatorTest
 {
-    private static Logger logger = LogManager.getLogger(PointCreatorTest.class.getName());
+    private final static Logger logger = LogManager.getLogger(PointCreatorTest.class.getName());
     private List<String> badDataForPointFirst;
     private List<String> badDataForPointSecond;
 

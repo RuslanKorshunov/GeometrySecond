@@ -52,7 +52,7 @@ public class Triangle implements Figure, Observable
         }
     }
 
-    public boolean changePoint(Point point, double x, double y)
+    public boolean setPoint(Point point, double x, double y)
     {
         boolean result=false;
         if(point.equals(first) || point.equals(second) || point.equals(third))
